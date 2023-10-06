@@ -63,7 +63,7 @@ export const gitCommitPush = async (
     await exec('git', ['add', filePath])
   }
 
-  await exec('git', ['commit', '-m', `💬Generate LLM translations`])
+  await exec('git', ['commit', '-m', `💬 Generate LLM translations`])
   await exec('git', ['push', 'origin', branch])
 }
 

@@ -5,13 +5,17 @@ import {
   OpenAIApi,
 } from 'openai'
 import { encode } from 'gpt-3-encoder'
+import { readFileSync } from 'fs';
+
 
 const API_KEY = getInput('apikey')
 const BASE_PATH = getInput('basePath') || 'https://api.openai.com/v1'
 const MODEL = getInput('model') || 'gpt-3.5-turbo-16k'
+const fileContents = readFileSync('../dist/forbidden_words.txt', 'utf8')
+const words = fileContents.split('\n')
 const PROMPT =
   getInput('prompt') ||
-  'Please translate the given text into naturalistic {targetLanguage}.'
+  `Please translate the given text into naturalistic {targetLanguage}. The following words should not be translated: ${words.join(', ')}.`
 if (!API_KEY) {
   setFailed('Error: API_KEY could not be retrieved.')
 }

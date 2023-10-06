@@ -51,7 +51,7 @@ export const translateByCommand = async (
   )
 
   await gitCreatePullRequest(branch, title, body)
-  await gitPostComment('🎉Translation PR created!')
+  await gitPostComment('🎉 Translation PR created!')
 }
 
 export const translateByManual = async (

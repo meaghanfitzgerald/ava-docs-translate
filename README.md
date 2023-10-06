@@ -1,10 +1,23 @@
+# Ava Docs Translation Fork of gpt-translate
+
+The purpose of this fork is to:
+
+1. adjust the translation prompt to properly handle Ava Labs' documentation website,
+2. and eventually point the GitHub Action away from the OpenAI paid gpt-3.5-turbo endpoint to an open-source model
+
+Below are the original gpt-translate docs.
+
+---
+
 # 🌎 Markdown Translation BOT
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/a13ea4f37913ba6ba570/maintainability)](https://codeclimate.com/github/3ru/gpt-translate/maintainability)
 [![GPT Translate](https://github.com/3ru/gpt-translate/actions/workflows/gpt-translate.yml/badge.svg)](https://github.com/3ru/gpt-translate/actions/workflows/gpt-translate.yml)
 
 This GitHub action translates your markdown files into multiple languages using the GPT-4, GPT-3.5 model.
 
 ### ⚠️**Warning**
+
 The OpenAI API is currently not available for free. You need an API Key issued with a `paid account` to use this workflow.  
 <img width="387" alt="image" src="https://github.com/3ru/gpt-translate/assets/69892552/8c803edb-85ef-41ee-a4be-be52b3a30eba">
 
@@ -20,7 +33,7 @@ The OpenAI API is currently not available for free. You need an API Key issued w
 These limitations prevent API abuse by non-trusted parties.
 
 </p>
-</details> 
+</details>
 
 ## 🔧 Setup
 
@@ -37,19 +50,20 @@ These limitations prevent API abuse by non-trusted parties.
 - Set [your API key](https://platform.openai.com/account/api-keys)(`OPENAI_API_KEY`) to secrets
   ![secrets](https://user-images.githubusercontent.com/69892552/228692421-22d7db33-4e32-4f28-b166-45b4d3ce2b11.jpg)
 
-
 ### GitHub Actions Workflow Settings
 
 #### Required
+
 - Provide the OPENAI_API_KEY as apiKey.
 - Set `on` to trigger when a comment is created (`types: [ created ]`).
 - Checkout in advance(`actions/checkout@v3`).
 
 #### Recommended (To minimize unnecessary run time)
+
 - Configure if to run only when `/gpt-translate` or `/gt` is present in the comment.
 
-
 👇 Here is a minimal workflow example:
+
 ```yaml
 # .github/workflows/gpt-translate.yml
 name: GPT Translate
@@ -74,12 +88,12 @@ jobs:
           apikey: ${{ secrets.OPENAI_API_KEY }}
 ```
 
-
 ## 💡 Usage
 
 ```
 /gpt-translate [input filepath] [output filepath] [target language] 
 ```
+
 You can use /gt as a shorthand for /gpt-translate.
 
 1.Create a comment with `/gpt-translate` or `/gt` in an issue or pull request.
@@ -92,9 +106,11 @@ In other words, if you keep commenting on an issue, new PRs will continuously be
 If you keep commenting on a PR, new commits will continuously be added to that PR.
 
 ## 📝 Example
+
 ```
 /gpt-translate README.md zh-TW/README.md traditional-chinese
 ```
+
 Translate `README.md` into traditional Chinese and place it under the `zh-TW` directory.
 
 ### Multiple file support
@@ -102,22 +118,27 @@ Translate `README.md` into traditional Chinese and place it under the `zh-TW` di
 You can translate multiple files at once by specifying a wildcard in the input file path.
 
 Here is a sample
+
 ```
 /gpt-translate *.md *.ja.md Japanese
 ```
+
 If `A.md` and `B.md` are in the root directory, the output will be `A.ja.md` and `B.ja.md`. The file names are inherited from the input files.
 I am considering outputting the file with an arbitrary file name, but if you have a smart idea, please suggest it through the issue!
 
 For more information, please refer to the [website](https://g-t.vercel.app/docs/references/path-builder)
 
 ## 🌐 Supported Languages
+
 Any language interpreted by GPT-4 or GPT-3.5
 
 ## 🏘️ Community
+
 - [Discussions](https://github.com/3ru/gpt-translate/discussions)
   - If you have any questions, please feel free to ask in the GitHub Discussions :)
 - [Issues](https://github.com/3ru/gpt-translate/issues)
   - Please submit bugs and new feature suggestions to GitHub Issues
 
 ## 📃 License
+
 MIT License

@@ -15,7 +15,7 @@ const fileContents = readFileSync('../dist/forbidden_words.txt', 'utf8')
 const words = fileContents.split('\n')
 const PROMPT =
   getInput('prompt') ||
-  `Please translate the given text into naturalistic {targetLanguage}. The following words should not be translated: ${words.join(', ')}.`
+  `The following keywords in English: [ ${words.join(', ')}], please translate the given text into naturalistic {targetLanguage}.`
 if (!API_KEY) {
   setFailed('Error: API_KEY could not be retrieved.')
 }

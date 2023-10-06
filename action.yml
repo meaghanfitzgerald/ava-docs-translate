@@ -1,4 +1,4 @@
-name: 'GPT Translate'
+name: 'Ava Docs Translate'
 description: 'Markdown translation into any other language powered by ChatGPT'
 inputs:
   token:

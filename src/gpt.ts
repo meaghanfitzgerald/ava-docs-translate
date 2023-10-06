@@ -88,6 +88,8 @@ export const gptTranslate = async (
     }
     chunk += contentChunks[i] + (i < contentChunks.length - 1 ? splitter : '')
   }
+  info(`Prompt: ${prompt}`)
+  info(`Text: ${chunk}`)
   translated += await askGPT(chunk, prompt)
   info('Translation completed!')
 

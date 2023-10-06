@@ -10,7 +10,7 @@ import { readFileSync } from 'fs';
 
 const API_KEY = getInput('apikey')
 const BASE_PATH = getInput('basePath') || 'https://api.openai.com/v1'
-const MODEL = getInput('model') || 'gpt-3.5-turbo-16k'
+const MODEL = getInput('model') || 'gpt-4'
 const fileContents = readFileSync('../dist/forbidden_words.txt', 'utf8')
 const words = fileContents.split('\n')
 const PROMPT =

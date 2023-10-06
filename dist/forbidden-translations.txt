@@ -51,6 +51,7 @@ ERC721
 ESLint
 Ethereum
 Ethers
+Faucet
 feeRecipient
 Fuji
 Ganache

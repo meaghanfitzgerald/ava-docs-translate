@@ -19,6 +19,14 @@ const PROMPT =
 if (!API_KEY) {
   setFailed('Error: API_KEY could not be retrieved.')
 }
+if (!MODEL) {
+  setFailed('Error: MODEL could not be retrieved.')
+}
+if (!PROMPT) {
+  setFailed('Error: PROMPT could not be retrieved.')
+}
+
+info(`Prompt: ${PROMPT}`)
 
 const configuration = new Configuration({
   apiKey: API_KEY,
@@ -88,10 +96,9 @@ export const gptTranslate = async (
     }
     chunk += contentChunks[i] + (i < contentChunks.length - 1 ? splitter : '')
   }
-  info(`Prompt: ${prompt}`)
-  info(`Text: ${chunk}`)
   translated += await askGPT(chunk, prompt)
   info('Translation completed!')
+  info(`Text: ${chunk}`)
 
   return translated
 }

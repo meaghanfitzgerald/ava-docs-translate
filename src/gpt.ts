@@ -10,12 +10,11 @@ import { readFileSync } from 'fs';
 
 const API_KEY = getInput('apikey')
 const BASE_PATH = getInput('basePath') || 'https://api.openai.com/v1'
-const MODEL = getInput('model') || 'gpt-4'
+const MODEL = getInput('model') || 'gpt-3.5-turbo-16k'
 const fileContents = readFileSync('../dist/forbidden_words.txt', 'utf8')
-const words = fileContents.split('\n')
 const PROMPT =
   getInput('prompt') ||
-  `The following keywords in English: [ ${words.join(', ')}], please translate the given text into naturalistic {targetLanguage}.`
+  `Please translate the given text into naturalistic {targetLanguage}.`
 if (!API_KEY) {
   setFailed('Error: API_KEY could not be retrieved.')
 }
